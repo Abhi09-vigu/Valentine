@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Day Special</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #001F3F;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #FFD700;
+            font-size: 3em;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #FFD700; }
+            to { text-shadow: 0 0 20px #FFA500; }
+        }
+        p {
+            font-size: 1.5em;
+            color: #ADD8E6;
+        }
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 250px;
+            height: 350px;
+            background: url('tree.png') no-repeat center center;
+            background-size: contain;
+        }
+        .tree-left {
+            left: 20%;
+        }
+        .tree-right {
+            right: 20%;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.8;
+            animation: fall linear infinite, sway linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) translateX(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(50vh) translateX(15px) rotate(45deg); }
+            100% { transform: translateY(100vh) translateX(-15px) rotate(90deg); opacity: 0; }
+        }
+        @keyframes sway {
+            0%, 100% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+        }
+        .signature {
+            font-size: 2em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.6);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Promise Day! 🌟</h1>
+        <p>Keep your promises, cherish your bonds, and spread love!</p>
+        <div class="tree tree-left"></div>
+        <div class="tree tree-right"></div>
+        <div class="signature">From Abhiram Kollepara</div>
+    </div>
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            const stars = ['⭐', '✨', '🌟', '💫', '🌠'];
+            star.innerHTML = stars[Math.floor(Math.random() * stars.length)];
+            star.classList.add('star');
+            star.style.left = (Math.random() * 100) + 'vw';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's, ' + (Math.random() * 2 + 1.5) + 's';
+            star.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+            star.style.opacity = Math.random() * 0.5 + 0.5;
+            document.body.appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 5000);
+        }
+        
+        setInterval(createStar, 400);
+
+        function changeBackgroundColor() {
+            const colors = ['#001F3F', '#002F6C', '#004080', '#003366', '#0B3D91', '#1E4D92'];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        setInterval(changeBackgroundColor, 1000);
+    </script>
+</body>
+</html>

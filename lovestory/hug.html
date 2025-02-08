@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hug Day Special</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #FFB6C1;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #D70040;
+            font-size: 3em;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #D70040; }
+            to { text-shadow: 0 0 20px #FF1493; }
+        }
+        p {
+            font-size: 1.5em;
+            color: #8B0000;
+        }
+        .hug {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.8;
+            animation: fall linear infinite, sway linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) translateX(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(50vh) translateX(15px) rotate(15deg); }
+            100% { transform: translateY(100vh) translateX(-15px) rotate(30deg); opacity: 0; }
+        }
+        @keyframes sway {
+            0%, 100% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Hug Day! 🤗</h1>
+        <p>Sending you warm hugs and love! ❤️</p>
+    </div>
+    <audio autoplay loop>
+        <source src="hug_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <script>
+        function createHug() {
+            const hug = document.createElement('div');
+            const hugs = ['🤗', '❤️', '💖', '💕', '💗'];
+            hug.innerHTML = hugs[Math.floor(Math.random() * hugs.length)];
+            hug.classList.add('hug');
+            hug.style.left = (Math.random() * 100) + 'vw';
+            hug.style.animationDuration = (Math.random() * 3 + 2) + 's, ' + (Math.random() * 2 + 1.5) + 's';
+            hug.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+            hug.style.opacity = Math.random() * 0.5 + 0.5;
+            document.body.appendChild(hug);
+            setTimeout(() => {
+                hug.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHug, 400);
+
+        function changeBackgroundColor() {
+            const colors = ['#FFB6C1', '#FFC0CB', '#FF69B4', '#FF1493', '#DB7093'];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        setInterval(changeBackgroundColor, 1000);
+    </script>
+</body>
+</html>

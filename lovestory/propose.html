@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose Day Special</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #FFD700;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #FF0000;
+            font-size: 3em;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #FF0000; }
+            to { text-shadow: 0 0 20px #FF4500; }
+        }
+        p {
+            font-size: 1.5em;
+            color: #8B0000;
+        }
+        .ring {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.8;
+            animation: fall linear infinite, sway linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) translateX(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(50vh) translateX(15px) rotate(15deg); }
+            100% { transform: translateY(100vh) translateX(-15px) rotate(30deg); opacity: 0; }
+        }
+        @keyframes sway {
+            0%, 100% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Propose Day! 💍</h1>
+        <p>Will you be mine forever? ❤️</p>
+    </div>
+    
+    <script>
+        function createRing() {
+            const ring = document.createElement('div');
+            const rings = ['💍', '❤️', '💖', '💕', '💗'];
+            ring.innerHTML = rings[Math.floor(Math.random() * rings.length)];
+            ring.classList.add('ring');
+            ring.style.left = (Math.random() * 100) + 'vw';
+            ring.style.animationDuration = (Math.random() * 3 + 2) + 's, ' + (Math.random() * 2 + 1.5) + 's';
+            ring.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+            ring.style.opacity = Math.random() * 0.5 + 0.5;
+            document.body.appendChild(ring);
+            setTimeout(() => {
+                ring.remove();
+            }, 5000);
+        }
+        
+        setInterval(createRing, 400);
+
+        function changeBackgroundColor() {
+            const colors = ['#FFD700', '#FFA500', '#FF6347', '#FF4500', '#FF0000', '#FF69B4'];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        setInterval(changeBackgroundColor, 1000);
+    </script>
+</body>
+</html>

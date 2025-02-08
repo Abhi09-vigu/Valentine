@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #ffe6f2;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 3em;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #d63384; }
+            to { text-shadow: 0 0 20px #e6739f; }
+        }
+        p {
+            font-size: 1.5em;
+            color: #b3005e;
+        }
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 250px;
+            height: 350px;
+            background: url('tree.png') no-repeat center center;
+            background-size: contain;
+        }
+        .tree-left {
+            left: 20%;
+        }
+        .tree-right {
+            right: 20%;
+        }
+        .heart {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.8;
+            animation: fall linear infinite, sway linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) translateX(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(50vh) translateX(15px) rotate(45deg); }
+            100% { transform: translateY(100vh) translateX(-15px) rotate(90deg); opacity: 0; }
+        }
+        @keyframes sway {
+            0%, 100% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+        }
+        .signature {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff1493;
+            text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.6);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day! 💖</h1>
+        <p>Love is in the air! Spread the joy with your special one.</p>
+        <div class="tree tree-left"></div>
+        <div class="tree tree-right"></div>
+        <div class="signature">From Abhiram Kollepara && Abhi Vignesh</div>
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            const colors = ['#ff0000', '#ff66b2', '#ffcc00', '#6600cc', '#0099ff', '#ff4500', '#ff1493'];
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            heart.style.left = (Math.random() * 100) + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's, ' + (Math.random() * 2 + 1.5) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 400);
+
+        function changeBackgroundColor() {
+            const colors = ['#ffe6f2', '#ffccdd', '#ffb3c6', '#ff99b2', '#ff8099', '#ff6685'];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        setInterval(changeBackgroundColor, 1000);
+    </script>
+</body>
+</html>

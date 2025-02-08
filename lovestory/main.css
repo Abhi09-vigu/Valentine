@@ -1,0 +1,29 @@
+*{
+    background-image: url(https://hips.hearstapps.com/hmg-prod/images/valentines-day-zoom-backgrounds-hearts-1643038425.jpeg);
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(183, 93, 163);
+}
+.imgs{
+    display: flex;
+    justify-content: space-between;
+}
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:  20px;
+}
+
+
+
+.input{
+    width: 700px;
+    color: blueviolet;
+}
+.instru{
+    font-size: x-large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 1000px;
+}
